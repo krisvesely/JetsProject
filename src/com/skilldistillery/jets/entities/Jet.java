@@ -15,6 +15,12 @@ public abstract class Jet {
 		this.range = range;
 		this.price = price;
 	}
+	
+	public void fly() {
+		double flightTime = getRange() / getSpeed();
+		flightTime = Math.round(flightTime * 100.00) / 100.00;
+		System.out.println(toString() + "\n   Flight Time: " + flightTime + " hours");
+	}
 	public String getModel() {
 		return model;
 	}

@@ -52,10 +52,9 @@ public class Airfield {
 	}
 
 	public void fly(Airfield airfield) {
+		System.out.println();
 		for (int i = 0; i < airfield.getFleet().size(); i++) {
-			double flightTime = airfield.getFleet().get(i).getRange() / airfield.getFleet().get(i).getSpeed();
-			flightTime = Math.round(flightTime * 100.00) / 100.00;
-			System.out.println(airfield.getFleet().get(i) + "\n\tFlight Time: " + flightTime + " hours");
+			airfield.getFleet().get(i).fly();
 		}
 	}
 	public void findFastest(Airfield airfield) {
