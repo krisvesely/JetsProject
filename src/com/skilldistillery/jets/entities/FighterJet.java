@@ -9,7 +9,7 @@ public class FighterJet extends Jet implements CombatReady {
 	}
 	
 	public void fight() {
-		System.out.println("Buckle your seatbelts!");
+		System.out.println(getModel() + ": Buckle your seatbelts!");
 	}
 
 	@Override
