@@ -26,22 +26,22 @@ public class JetsApplication {
 			sc.nextLine();
 			switch (menuChoice) {
 			case 1:
-				airfield.listFleet(airfield);
+				airfield.listFleet();
 				break;
 			case 2:
-				airfield.fly(airfield);
+				airfield.fly();
 				break;
 			case 3:
-				airfield.findFastest(airfield);
+				airfield.findFastest();
 				break;
 			case 4:
-				airfield.findBestRange(airfield);
+				airfield.findBestRange();
 				break;
 			case 5:
-				airfield.loadCargoJets(airfield);
+				airfield.loadCargoJets();
 				break;
 			case 6:
-				airfield.dogfight(airfield);
+				airfield.dogfight();
 				break;
 			case 7:
 				System.out.print("\nPlease enter the jet's model: ");
@@ -52,15 +52,15 @@ public class JetsApplication {
 				int range = sc.nextInt();
 				System.out.print("Enter the jet's price in USD: $");
 				long price = sc.nextLong();
-				airfield.addJet(airfield, model, speed, range, price);
+				airfield.addJet(model, speed, range, price);
 				System.out.println("\nWelcome to the fleet, " + model + "!");
 				break;
 			case 8:
-				airfield.listWithIndex(airfield);
+				airfield.listWithIndex();
 				System.out.print("\nPlease enter the list number of the jet to remove: ");
 				int jetToDelete = sc.nextInt();
 				sc.nextLine();
-				System.out.println("\n" + airfield.rmJet(airfield, jetToDelete) + " has been removed from the fleet.");
+				System.out.println("\n" + airfield.rmJet(jetToDelete) + " has been removed from the fleet.");
 				break;
 			case 9:
 				System.out.println("\nGoodbye.");

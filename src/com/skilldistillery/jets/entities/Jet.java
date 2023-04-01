@@ -47,7 +47,7 @@ public abstract class Jet {
 	}
 	@Override
 	public String toString() {
-		return "Model: " + model + ", Speed: " + speed + " mph, Range: " + range + " miles, Price: $" + price;
+		return "Model: " + model + ", Speed: " + (int)speed + " mph, Range: " + range + " miles, Price: $" + price;
 	}
 	@Override
 	public int hashCode() {

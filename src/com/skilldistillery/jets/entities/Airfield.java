@@ -44,77 +44,77 @@ public class Airfield {
 		}		
 		return fleet;
 	}
-	public void listFleet(Airfield airfield) {
+	public void listFleet() {
 		System.out.println();
-		for (int i = 0; i < airfield.getFleet().size(); i++) {
-			System.out.println(airfield.getFleet().get(i));
+		for (int i = 0; i < fleet.size(); i++) {
+			System.out.println(fleet.get(i));
 		}
 	}
 
-	public void fly(Airfield airfield) {
+	public void fly() {
 		System.out.println();
-		for (int i = 0; i < airfield.getFleet().size(); i++) {
-			airfield.getFleet().get(i).fly();
+		for (int i = 0; i < fleet.size(); i++) {
+			fleet.get(i).fly();
 		}
 	}
-	public void findFastest(Airfield airfield) {
-		double max = airfield.getFleet().get(0).getSpeed();
-		for (int i = 1; i < airfield.getFleet().size(); i++) {
-			if (max <= airfield.getFleet().get(i).getSpeed()) {
-				max = airfield.getFleet().get(i).getSpeed();
+	public void findFastest() {
+		double max = fleet.get(0).getSpeed();
+		for (int i = 1; i < fleet.size(); i++) {
+			if (max <= fleet.get(i).getSpeed()) {
+				max = fleet.get(i).getSpeed();
 			}
 		}
-		System.out.println("\nHere's the fatest jet, with a speed of " + max + " mph:");
-		for (int i = 0; i < airfield.getFleet().size(); i++) {
-			if (airfield.getFleet().get(i).getSpeed() == max) {
-				System.out.println(airfield.getFleet().get(i));
-			}
-		}
-	}
-	public void findBestRange(Airfield airfield) {
-		double max = airfield.getFleet().get(0).getRange();
-		for (int i = 1; i < airfield.getFleet().size(); i++) {
-			if (max <= airfield.getFleet().get(i).getRange()) {
-				max = airfield.getFleet().get(i).getRange();
-			}
-		}
-		System.out.println("\nHere's the jet with the longest range, which is " + max + " miles:");
-		for (int i = 0; i < airfield.getFleet().size(); i++) {
-			if (airfield.getFleet().get(i).getRange() == max) {
-				System.out.println(airfield.getFleet().get(i));
+		System.out.println("\nHere's the fatest jet, with a speed of " + (int)max + " mph:");
+		for (int i = 0; i < fleet.size(); i++) {
+			if (fleet.get(i).getSpeed() == max) {
+				System.out.println(fleet.get(i));
 			}
 		}
 	}
-	public void loadCargoJets(Airfield airfield) {
+	public void findBestRange() {
+		double max = fleet.get(0).getRange();
+		for (int i = 1; i < fleet.size(); i++) {
+			if (max <= fleet.get(i).getRange()) {
+				max = fleet.get(i).getRange();
+			}
+		}
+		System.out.println("\nHere's the jet with the longest range, which is " + (int)max + " miles:");
+		for (int i = 0; i < fleet.size(); i++) {
+			if (fleet.get(i).getRange() == max) {
+				System.out.println(fleet.get(i));
+			}
+		}
+	}
+	public void loadCargoJets() {
 		System.out.println();
-		for (int i = 0; i < airfield.getFleet().size(); i++) {
-			if (airfield.getFleet().get(i) instanceof CargoPlane) {
-				((CargoPlane) airfield.getFleet().get(i)).loadCargo();
+		for (int i = 0; i < fleet.size(); i++) {
+			if (fleet.get(i) instanceof CargoPlane) {
+				((CargoPlane) fleet.get(i)).loadCargo();
 			}
 		}
 	}
-	public void dogfight(Airfield airfield) {
+	public void dogfight() {
 		System.out.println();
-		for (int i = 0; i < airfield.getFleet().size(); i++) {
-			if (airfield.getFleet().get(i) instanceof FighterJet) {
-				((FighterJet) airfield.getFleet().get(i)).fight();
+		for (int i = 0; i < fleet.size(); i++) {
+			if (fleet.get(i) instanceof FighterJet) {
+				((FighterJet) fleet.get(i)).fight();
 			}
 		}
 	}
-	public void addJet(Airfield airfield, String model, double speed, int range, long price) {
+	public void addJet(String model, double speed, int range, long price) {
 		Jet createAJet = new PassengerJet(model, speed, range, price);
 		fleet.add(createAJet);
 	}
 	
-	public void listWithIndex(Airfield airfield) {
+	public void listWithIndex() {
 		System.out.println();
-		for (int i = 0; i < airfield.getFleet().size(); i++) {
+		for (int i = 0; i < fleet.size(); i++) {
 			int menuIndex = i + 1;
-			System.out.println(menuIndex + ": " + airfield.getFleet().get(i));
+			System.out.println(menuIndex + ": " + fleet.get(i));
 		}
 	}
-	public String rmJet(Airfield airfield, int jetToDelete) {
-		String deletedModel = airfield.getFleet().get(jetToDelete - 1).getModel();
+	public String rmJet(int jetToDelete) {
+		String deletedModel = fleet.get(jetToDelete - 1).getModel();
 		fleet.remove(jetToDelete - 1); 
 		return deletedModel;
 	}
@@ -129,5 +129,3 @@ public class Airfield {
 		return "Airfield [fleet=" + fleet + "]";
 	}
 }
-
-// only the airfield can talk to the jets' many methods

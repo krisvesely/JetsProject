@@ -9,9 +9,22 @@ public class FighterJet extends Jet implements CombatReady {
 	}
 	
 	public void fight() {
-		System.out.println(getModel() + ": Buckle your seatbelts!");
+		System.out.println(getModel() + " crew disposition: " + crewStatus());
 	}
 
+	
+	public String crewStatus() {
+		String[] randomStatuses = new String[] {
+				"I feel the need ... the need for speed.",
+				"Remember boys, no points for second place.",
+				"It's not the plane, it's the pilot.",
+				"Kowabunga!",
+				"Buckle up!",
+				"Just a walk in the park, Kazansky"};
+		int randomIndex = (int) (randomStatuses.length * Math.random());
+		return randomStatuses[randomIndex];
+	}
+	
 	@Override
 	public String toString() {
 		return "Fighter Jet: " + super.toString();

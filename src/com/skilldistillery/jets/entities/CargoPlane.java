@@ -7,7 +7,18 @@ public class CargoPlane extends Jet implements CargoCarrier {
 	}
 	
 	public void loadCargo() {
-		System.out.println(getModel() + ": Airlift inpection complete; pallets loading and being tied down now.");
+		System.out.println(getModel() + " cargo status: " + cargoStatus());
+	}
+	
+	public String cargoStatus() {
+		String[] randomStatuses = new String[] {
+				"Airlift inpection complete; loading awaits telescoping material handler.",
+				"Cargo frustrated; undeclared HAZMAT.",
+				"Pallets loaded via winch; Loadmasters inspecting holddowns.",
+				"Cargo rejected; pallet weights not balanced per load diagram.",
+				"Heavy drop platforms loaded; lifting ramp."};
+		int randomIndex = (int) (randomStatuses.length * Math.random());
+		return randomStatuses[randomIndex];
 	}
 	
 	@Override 
