@@ -11,10 +11,18 @@ public class JetsApplication {
 	
 	public void launch() {
 		Airfield airfield = new Airfield();
+		menu();
 		for (int i = 0; i < airfield.getFleet().size(); i++) {
 			System.out.println(airfield.getFleet().get(i));
 		}
 	
+	}
+	
+	public void menu() {
+		boolean menuOpen = true;
+		do {
+			
+		} while (menuOpen);
 	}
 
 }
