@@ -1,5 +1,5 @@
-Passenger, C-32, 537, ,
-Cargo, C-17 Globemaster III, 518, 2_762, 202_300_000
-Cargo, C-130J Super Hercules, 417, 2_071, 75_500_000
-Fighter, F-15E Strike Eagle, , ,
-Fighter, F-22 Raptor, , , 
+Passenger,VC-25 Air Force One,630,7800,325000000
+Cargo,C-17 Globemaster III,518,2762,202300000
+Cargo,C-130J Super Hercules,417,2071,75500000
+Fighter,F-15E Strike Eagle,1875,2400,31100000
+Fighter,F-22 Raptor,1482,1850,143000000

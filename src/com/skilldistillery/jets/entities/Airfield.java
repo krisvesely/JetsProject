@@ -3,40 +3,68 @@ package com.skilldistillery.jets.entities;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 
 public class Airfield {
 	private List<Jet> fleet;
-	
-	//populate its fleet in the ctor
-	
-	public List<Jet> readFromFile(String fileName) {
-		List<Jet> jets = new ArrayList<>();
-		
-		try ( BufferedReader bufIn = new BufferedReader(new FileReader(fileName)) ) {
-			  String aJet;
-			  while ((aJet = bufIn.readLine()) != null) {
-				  String[] jetDetails = aJet.split(", ");
-				  //create the appropriate jet based upon all the jet detail
-				  /*if the jetDetails[0] happens to be a DCV, then create a Dilithium Powered jet
-				   * if the jetDetails[0] happens to be a Fighter, then create a Fighter jet
-				   * 
-				   */
-			  }
-			}
-			catch (IOException e) {
-			  System.err.println(e);
-			}
-		
-		return jets;
+
+	public Airfield() {
+		readFromFile();
 	}
-	//read in the various jet types from the file
-	// as you read in a jet, create a jet,
-	// and add that specific jet type to your jet list
+
+	public List<Jet> readFromFile() {
+		fleet = new ArrayList<>();
+
+		try (BufferedReader bufIn = new BufferedReader(new FileReader("jets.txt"))) {
+			String aJet;
+			while ((aJet = bufIn.readLine()) != null) {
+
+				String[] jetDetails = aJet.split(",");
+				String type = jetDetails[0];
+				String model = jetDetails[1];
+				double speed = Double.parseDouble(jetDetails[2]);
+				int range = Integer.parseInt(jetDetails[3]);
+				long price = Long.parseLong(jetDetails[4]);
+				Jet createAJet = null;
+
+				if (type.equals("Passenger")) {
+					createAJet = new PassengerJet(model, speed, range, price);
+				}
+				else if (type.equals("Cargo")) {
+					createAJet = new CargoPlane(model, speed, range, price);
+				} 
+				else if (type.equals("Fighter")) {
+					createAJet = new FighterJet(model, speed, range, price);
+				}
+				fleet.add(createAJet);
+			}
+		} catch (IOException e) {
+			System.err.println(e);
+		}		
+		
+		/*
+		 * for (int i = 0; i < fleet.size(); i++) { System.out.println(fleet.get(i)); }
+		 */
+		 	
+		return fleet;
+	}
+
+	public List<Jet> getFleet() {
+		return fleet;
+	}
+
+	public void setFleet(List<Jet> fleet) {
+		this.fleet = fleet;
+	}
+
+	@Override
+	public String toString() {
+		return "Airfield [fleet=" + fleet + "]";
+	}
 }
 
-/* only the airfield can talk to the jets
- * many methods
+/*
+ * only the airfield can talk to the jets many methods
  * 
  */
