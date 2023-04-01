@@ -12,7 +12,7 @@ public class JetsApplication {
 	}
 	
 	public void launch() {
-		System.out.println("Welcome to the Jets Application, where you can fly the friendly, or combatant, skies!");
+		System.out.println("Welcome to the Jets Application!");
 		Airfield airfield = new Airfield();
 		menu(airfield);
 	}
@@ -23,6 +23,7 @@ public class JetsApplication {
 		do {
 			printMenu();
 			int menuChoice = sc.nextInt();
+			sc.nextLine();
 			switch (menuChoice) {
 			case 1:
 				airfield.listFleet(airfield);
@@ -44,8 +45,7 @@ public class JetsApplication {
 				break;
 			case 7:
 				System.out.print("\nPlease enter the jet's model: ");
-				String model = sc.next();
-				sc.nextLine();
+				String model = sc.nextLine();
 				System.out.print("Enter the jet's speed in mph: ");
 				double speed = sc.nextDouble();
 				System.out.print("Enter the jet's range in miles: ");
@@ -53,14 +53,14 @@ public class JetsApplication {
 				System.out.print("Enter the jet's price in USD: $");
 				long price = sc.nextLong();
 				airfield.addJet(airfield, model, speed, range, price);
-				System.out.println("Welcome to the fleet, " + model + "!");
+				System.out.println("\nWelcome to the fleet, " + model + "!");
 				break;
 			case 8:
 				airfield.listWithIndex(airfield);
 				System.out.print("\nPlease enter the list number of the jet to remove: ");
 				int jetToDelete = sc.nextInt();
-				
-				System.out.println(airfield.rmJet(airfield, jetToDelete) + " has been removed from the fleet.");
+				sc.nextLine();
+				System.out.println("\n" + airfield.rmJet(airfield, jetToDelete) + " has been removed from the fleet.");
 				break;
 			case 9:
 				System.out.println("\nGoodbye.");
@@ -69,13 +69,13 @@ public class JetsApplication {
 			default:
 				System.out.println("\nInvalid entry. Please enter a whole number '1' through '9'");
 				}
-			sc.nextLine();
+//			sc.nextLine();
 		} while (menuOpen);
 		sc.close();
 	}
 	
 	public void printMenu() {
-		System.out.println("\nPlease enter a number 1-9, corresponding to your menu choice:\n"
+		System.out.println("\n:::::::::::::::  MENU  :::::::::::::::\n"
 				+ "1. View the complete fleet list\n"
 				+ "2. Fly all jets in the fleet\n"
 				+ "3. View the fatest jet in the fleet\n"
@@ -84,7 +84,9 @@ public class JetsApplication {
 				+ "6. Dogfight\n"
 				+ "7. Add a jet to the fleet\n"
 				+ "8. Remove a jet from the fleet\n"
-				+ "9. Quit");
+				+ "9. Quit\n"
+				+ "::::::::::::::::::::::::::::::::::::::\n");
+		System.out.print("Please enter a number 1-9, corresponding to your menu choice: ");
 	}
 
 }

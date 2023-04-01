@@ -7,7 +7,7 @@ public class CargoPlane extends Jet implements CargoCarrier {
 	}
 	
 	public void loadCargo() {
-		System.out.print(getModel() + ": Airlift inpection complete; pallets loading and being tied down now.");
+		System.out.println(getModel() + ": Airlift inpection complete; pallets loading and being tied down now.");
 	}
 	
 	@Override 

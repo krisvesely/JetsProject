@@ -54,7 +54,8 @@ public class Airfield {
 	public void fly(Airfield airfield) {
 		for (int i = 0; i < airfield.getFleet().size(); i++) {
 			double flightTime = airfield.getFleet().get(i).getRange() / airfield.getFleet().get(i).getSpeed();
-			System.out.println(airfield.getFleet().get(i) + ", Flight Time: " + flightTime + " hours");
+			flightTime = Math.round(flightTime * 100.00) / 100.00;
+			System.out.println(airfield.getFleet().get(i) + "\n\tFlight Time: " + flightTime + " hours");
 		}
 	}
 	public void findFastest(Airfield airfield) {
@@ -78,7 +79,7 @@ public class Airfield {
 				max = airfield.getFleet().get(i).getRange();
 			}
 		}
-		System.out.println("\nHere's the jet with the longest range, which is" + max + " miles:");
+		System.out.println("\nHere's the jet with the longest range, which is " + max + " miles:");
 		for (int i = 0; i < airfield.getFleet().size(); i++) {
 			if (airfield.getFleet().get(i).getRange() == max) {
 				System.out.println(airfield.getFleet().get(i));
