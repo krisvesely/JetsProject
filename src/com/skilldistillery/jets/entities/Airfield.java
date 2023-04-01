@@ -42,18 +42,41 @@ public class Airfield {
 		} catch (IOException e) {
 			System.err.println(e);
 		}		
-		
-		/*
-		 * for (int i = 0; i < fleet.size(); i++) { System.out.println(fleet.get(i)); }
-		 */
-		 	
 		return fleet;
+	}
+	
+
+	public void fly() {
+		
+	}
+	
+	public void findFastest() {
+		
+	}
+
+	public void findBestRange() {
+		
+	}
+	public void loadCargoJets() {
+		
+	}
+
+	public void dogfight() {
+		
+	}
+
+	public void addJet() {
+		
+	}
+	
+	public void rmJet() {
+		
 	}
 
 	public List<Jet> getFleet() {
 		return fleet;
 	}
-
+	
 	public void setFleet(List<Jet> fleet) {
 		this.fleet = fleet;
 	}
@@ -64,7 +87,4 @@ public class Airfield {
 	}
 }
 
-/*
- * only the airfield can talk to the jets many methods
- * 
- */
+// only the airfield can talk to the jets' many methods
