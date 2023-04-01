@@ -45,6 +45,7 @@ public class Airfield {
 		return fleet;
 	}
 	public void listFleet(Airfield airfield) {
+		System.out.println();
 		for (int i = 0; i < airfield.getFleet().size(); i++) {
 			System.out.println(airfield.getFleet().get(i));
 		}
@@ -53,7 +54,7 @@ public class Airfield {
 	public void fly(Airfield airfield) {
 		for (int i = 0; i < airfield.getFleet().size(); i++) {
 			double flightTime = airfield.getFleet().get(i).getRange() / airfield.getFleet().get(i).getSpeed();
-			System.out.println("\n" + airfield.getFleet().get(i) + ", Flight Time: " + flightTime + " hours");
+			System.out.println(airfield.getFleet().get(i) + ", Flight Time: " + flightTime + " hours");
 		}
 	}
 	public void findFastest(Airfield airfield) {
@@ -100,16 +101,26 @@ public class Airfield {
 			}
 		}
 	}
-	public void addJet(Airfield airfield) {
-		
+	public void addJet(Airfield airfield, String model, double speed, int range, long price) {
+		Jet createAJet = new PassengerJet(model, speed, range, price);
+		fleet.add(createAJet);
 	}
-	public void rmJet(Airfield airfield) {
-		
+	
+	public void listWithIndex(Airfield airfield) {
+		System.out.println();
+		for (int i = 0; i < airfield.getFleet().size(); i++) {
+			int menuIndex = i + 1;
+			System.out.println(menuIndex + ": " + airfield.getFleet().get(i));
+		}
+	}
+	public String rmJet(Airfield airfield, int jetToDelete) {
+		String deletedModel = airfield.getFleet().get(jetToDelete - 1).getModel();
+		fleet.remove(jetToDelete - 1); 
+		return deletedModel;
 	}
 	public List<Jet> getFleet() {
 		return fleet;
 	}
-
 	public void setFleet(List<Jet> fleet) {
 		this.fleet = fleet;
 	}

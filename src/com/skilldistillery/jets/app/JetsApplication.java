@@ -43,10 +43,24 @@ public class JetsApplication {
 				airfield.dogfight(airfield);
 				break;
 			case 7:
-				airfield.addJet(airfield);
+				System.out.print("\nPlease enter the jet's model: ");
+				String model = sc.next();
+				sc.nextLine();
+				System.out.print("Enter the jet's speed in mph: ");
+				double speed = sc.nextDouble();
+				System.out.print("Enter the jet's range in miles: ");
+				int range = sc.nextInt();
+				System.out.print("Enter the jet's price in USD: $");
+				long price = sc.nextLong();
+				airfield.addJet(airfield, model, speed, range, price);
+				System.out.println("Welcome to the fleet, " + model + "!");
 				break;
 			case 8:
-				airfield.rmJet(airfield);
+				airfield.listWithIndex(airfield);
+				System.out.print("\nPlease enter the list number of the jet to remove: ");
+				int jetToDelete = sc.nextInt();
+				
+				System.out.println(airfield.rmJet(airfield, jetToDelete) + " has been removed from the fleet.");
 				break;
 			case 9:
 				System.out.println("\nGoodbye.");
