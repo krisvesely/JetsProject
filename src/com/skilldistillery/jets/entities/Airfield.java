@@ -7,11 +7,12 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Airfield {
+	private List<String> pilotPool;
 	private List<Jet> fleet;
-	private List<String> pilotPool = findPilots();
 
 	public Airfield() {
-		readFromFile();
+		setPilotPool(findPilots());
+		this.fleet = readFromFile();
 	}
 
 	public List<Jet> readFromFile() {

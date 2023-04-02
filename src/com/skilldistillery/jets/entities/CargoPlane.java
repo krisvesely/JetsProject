@@ -30,7 +30,7 @@ public class CargoPlane extends Jet implements CargoCarrier {
 	public String pilotSays() {
 		String[] cargoPilotSays = new String[] {
 				"\"Notify the APOD to have MHE standing-by on the tarmac.\"",
-				"\"We'll get these supplies there in no time.\"",
+				"\"We'll have these supplies there in no time.\"",
 				"\"We're so heavy with this payload, we might hit the treetops.\""};
 		int randomIndex = (int) (cargoPilotSays.length * Math.random());
 		return cargoPilotSays[randomIndex];
