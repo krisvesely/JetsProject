@@ -26,24 +26,28 @@ public class Airfield {
 				double speed = Double.parseDouble(jetDetails[2]);
 				int range = Integer.parseInt(jetDetails[3]);
 				long price = Long.parseLong(jetDetails[4]);
-				Jet createAJet = null;
-
-				if (type.equals("Passenger")) {
-					createAJet = new PassengerJet(model, speed, range, price);
-				}
-				else if (type.equals("Cargo")) {
-					createAJet = new CargoPlane(model, speed, range, price);
-				} 
-				else if (type.equals("Fighter")) {
-					createAJet = new FighterJet(model, speed, range, price);
-				}
-				fleet.add(createAJet);
+				createAJet(type, model, speed, range, price);
 			}
 		} catch (IOException e) {
 			System.err.println(e);
 		}		
 		return fleet;
 	}
+	
+	public void createAJet(String type, String model, double speed, int range, long price) {
+		Jet newJet = null;
+		if (type.equals("Passenger")) {
+			newJet = new PassengerJet(model, speed, range, price);
+		}
+		else if (type.equals("Cargo")) {
+			newJet = new CargoPlane(model, speed, range, price);
+		} 
+		else if (type.equals("Fighter")) {
+			newJet = new FighterJet(model, speed, range, price);
+		}
+		fleet.add(newJet);
+	}
+	
 	public void listFleet() {
 		System.out.println();
 		for (int i = 0; i < fleet.size(); i++) {
@@ -101,10 +105,10 @@ public class Airfield {
 			}
 		}
 	}
-	public void addJet(String model, double speed, int range, long price) {
-		Jet createAJet = new PassengerJet(model, speed, range, price);
-		fleet.add(createAJet);
-	}
+//	public void addJet(String model, double speed, int range, long price) {
+//		Jet createAJet = new PassengerJet(model, speed, range, price);
+//		fleet.add(createAJet);
+//	}
 	
 	public void listWithIndex() {
 		System.out.println();
