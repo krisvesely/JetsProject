@@ -56,7 +56,6 @@ public class JetsApplication {
 			default:
 				System.out.println("\nInvalid entry. Please enter a whole number '1' through '9'");
 				}
-//			sc.nextLine();
 		} while (menuOpen);
 		sc.close();
 	}
@@ -116,7 +115,7 @@ public class JetsApplication {
 	public void addJetMenu() {
 		System.out.print("\nWhat type of jet are you adding?\n"
 				+ "\n1. Passenger Jet"
-				+ "\n2. Cargo Plane"
+				+ "\n2. Cargo Carrier"
 				+ "\n3. Fighter Jet\n"
 				+ "\nPlease enter 1-3 according to your Jet type: ");
 	}
@@ -129,7 +128,7 @@ public class JetsApplication {
 			System.out.print("\nPlease enter the list number of the jet to remove: ");
 			jetToDelete = sc.nextInt();
 			sc.nextLine();
-			if (jetToDelete > 0 && jetToDelete <+ airfield.getFleet().size()) {
+			if (jetToDelete > 0 && jetToDelete <= airfield.getFleet().size()) {
 				validIndex = true;
 			}
 			else {

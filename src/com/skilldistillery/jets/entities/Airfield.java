@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class Airfield {
 	private List<Jet> fleet;
+	private List<String> pilotPool = findPilots();
 
 	public Airfield() {
 		readFromFile();
@@ -35,15 +36,16 @@ public class Airfield {
 	}
 	
 	public void createAJet(String type, String model, double speed, int range, long price) {
+		String pilot = assignPilot();
 		Jet newJet = null;
 		if (type.equals("Passenger")) {
-			newJet = new PassengerJet(model, speed, range, price);
+			newJet = new PassengerJet(model, speed, range, price, pilot);
 		}
 		else if (type.equals("Cargo")) {
-			newJet = new CargoPlane(model, speed, range, price);
+			newJet = new CargoPlane(model, speed, range, price, pilot);
 		} 
 		else if (type.equals("Fighter")) {
-			newJet = new FighterJet(model, speed, range, price);
+			newJet = new FighterJet(model, speed, range, price, pilot);
 		}
 		fleet.add(newJet);
 	}
@@ -105,10 +107,6 @@ public class Airfield {
 			}
 		}
 	}
-//	public void addJet(String model, double speed, int range, long price) {
-//		Jet createAJet = new PassengerJet(model, speed, range, price);
-//		fleet.add(createAJet);
-//	}
 	
 	public void listWithIndex() {
 		System.out.println();
@@ -122,12 +120,46 @@ public class Airfield {
 		fleet.remove(jetToDelete - 1); 
 		return deletedModel;
 	}
+	
+	public ArrayList<String> findPilots() {
+		List<String> pilotPool = new ArrayList<>();
+		pilotPool.add("Maverick");
+		pilotPool.add("Goose");
+		pilotPool.add("Iceman");
+		pilotPool.add("Viper");
+		pilotPool.add("Rooster");
+		pilotPool.add("Phoenix");
+		pilotPool.add("Bob");
+		pilotPool.add("Hangman");
+		pilotPool.add("Halo");
+		pilotPool.add("Wolfman");
+		pilotPool.add("Jester");
+		pilotPool.add("Hollywood");
+		pilotPool.add("Payback");
+		return (ArrayList<String>) pilotPool;
+	}
+	
+	public String assignPilot() {
+		int randomIndex = (int) (pilotPool.size() * Math.random());
+		String pilot = pilotPool.get(randomIndex);
+		pilotPool.remove(randomIndex);
+		return pilot;
+	}
 	public List<Jet> getFleet() {
 		return fleet;
 	}
 	public void setFleet(List<Jet> fleet) {
 		this.fleet = fleet;
 	}
+	
+	public List<String> getPilotPool() {
+		return pilotPool;
+	}
+
+	public void setPilotPool(List<String> pilotPool) {
+		this.pilotPool = pilotPool;
+	}
+
 	@Override
 	public String toString() {
 		return "Airfield [fleet=" + fleet + "]";
