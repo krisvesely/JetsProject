@@ -20,14 +20,17 @@ public class FighterJet extends Jet implements CombatReady {
 				"It's not the plane, it's the pilot.",
 				"Kowabunga!",
 				"Buckle up!",
-				"Just a walk in the park, Kazansky"};
+				"Just a walk in the park, Kazansky."};
 		int randomIndex = (int) (randomStatuses.length * Math.random());
 		return randomStatuses[randomIndex];
 	}
 	
 	@Override
 	public String toString() {
-		return "Fighter Jet: " + super.toString();
+		double machSpeed = getSpeed() / 761.2;
+		machSpeed = Math.round(machSpeed * 10.0) / 10.0;
+		return "Fighter Jet: " + "Model: " + getModel() + ", Speed: Mach " 
+				+ machSpeed + ", Range: " + getRange() + " miles, Price: $" + getPrice();
 	}
 
 }
